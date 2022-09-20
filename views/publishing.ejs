@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/generalstyles.css">
+    <link rel="stylesheet" type="text/css" href="/css/notes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('./partials/navbarUser.ejs')%>
+
+        <div class="div-container">
+            <div class="div-title">
+                <h2 class="title">Publicações</h2>
+                <hr class="line">
+            </div>
+
+
+            <a href="/articles/create"><button class="button button-edit">Adicionar artigo <img class="icons"
+                        src="/img/icons/seta-direita.png" alt=""></button></a>
+            <div class="div-cards">
+                <% result.articles.rows.forEach(articles=> {%>
+                    <div class="div-card">
+                        <% users.forEach(userss => {%>
+                            <%if(articles.userId == userss.id) {%>
+                                <p><%= userss.name%> <img class="users-photo" src="/img/icons-perfil/<%= userss.photo%>" alt=""></p>
+                            <%}%>
+                        <%})%>
+
+                        <div class="div-title">
+                            <h3>
+                                <%= articles.title%>
+                            </h3>
+                            <hr class="line">
+                        </div>
+                        <div class="card-content d-flex justify-content-center">
+                            <p>
+                                <%- articles.description%>
+                            </p>
+                        </div>
+                    </div>
+                    
+                <%})%>
+            </div>
+            <div class="d-flex justify-content-end">      
+                <a href="/articles/page/1">Próximo ></a>
+            </div>
+        </div>
+
+        
+
+
+
+
+
+        <%- include('./partials/footer.ejs')%>

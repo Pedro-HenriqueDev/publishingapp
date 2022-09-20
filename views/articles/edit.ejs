@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/cadnotes.css">
+    <link rel="stylesheet" type="text/css" href="/css/generalstyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<%- include('../partials/navbarUser.ejs');%>
+
+<div class="div-container">
+    <div class="div-card">
+        <div class="card-title">
+            <h3>Atualizar Nota:</h3>
+        </div>
+        <div class="card-content">
+            <form action="/articles/update/save" method="POST">
+                <div>
+                    <input value="<%= article.title%>" class="form-edit" type="text" name="title" placeholder="título da Nota">
+                </div>
+                <div>
+                    <textarea style="resize: none;" id="bodyNote" class="form-edit" name="description" cols="30" rows="10" placeholder="Descrição da nota"><%- article.description%></textarea>
+                </div>
+                <input name="id" type="hidden" value="<%= article.id%>">
+                <div class="div-button">
+                    <button type="submit" class="button">Atualizar</button>
+                </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: "#bodyNote"
+    })
+</script>
+    
+<%- include('../partials/footer.ejs');%>

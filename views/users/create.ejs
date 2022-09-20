@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/cad.css">
+    <link rel="stylesheet" type="text/css" href="/css/generalstyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <%- include ('../partials/navbar.ejs')%> -->
+
+    <div class="div-container">
+        <div class="div-cad">
+            <div class="session1">
+                <div class="welcome">
+                    <h2 class="title">Bem vindo</h2>
+                    <h4 class="subtitle">Guarde suas notas de maneira segura!</h4>
+                    <a href="/users/login" class="button2">Login</a>
+                </div>
+            </div>
+            <div class="session2">
+                <h2 class="title">Criar Conta!</h2>
+                <form class="form-content" action="/users/save" method="POST">
+                        <input class="form-edit" type="text" name="name" placeholder="Nome">
+                        <input class="form-edit" type="email" name="email" placeholder="E-mail">
+                        <input class="form-edit" type="password" name="password" placeholder="Senha">
+
+                    <label for="icon-perfil">Icone de Perfil:</label>
+                    <div class="div-content-check">
+                        <div class="div-check">
+                            <input type="radio" name="photo" class="check-photo" value="coala.png">
+                            <img class="img-perfil" src="/img/icons-perfil/coala.png" alt="">
+                        </div>
+                        <div class="div-check">
+                            <input type="radio" name="photo" class="check-photo" value="coelho.png">
+                            <img class="img-perfil" src="/img/icons-perfil/coelho.png" alt="">
+                        </div>
+                        <div class="div-check">
+                            <input type="radio" name="photo" class="check-photo" value="husky.png">
+                            <img class="img-perfil" src="/img/icons-perfil/husky.png" alt="">
+                        </div>
+                        <div class="div-check">
+                            <input type="radio" name="photo" class="check-photo" value="macaco.png">
+                            <img class="img-perfil" src="/img/icons-perfil/macaco.png" alt="">
+                        </div>
+                        <div class="div-check">
+                            <input type="radio" name="photo" class="check-photo" value="passaro.png">
+                            <img class="img-perfil" src="/img/icons-perfil/passaro.png" alt="">
+                        </div>
+                    </div>
+                    <div class="div-button">
+                        <button type="submit" class="button btn-login">Criar</button>
+                    </div>
+                    <%if(message) {%>
+                        <p class="text-danger mt-2 msg">Usuário já existe!</p>
+                    <%}%>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include ('../partials/footer.ejs')%>

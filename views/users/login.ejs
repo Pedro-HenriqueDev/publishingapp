@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/cad.css">
+    <link rel="stylesheet" type="text/css" href="/css/generalstyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <%- include ('../partials/navbar.ejs')%> -->
+
+    <div class="div-container">
+        <div class="div-cad">
+            <div class="session1">
+                <div class="welcome">
+                    <h2 class="title">Não tem conta?</h2>
+                    <h4 class="subtitle">Guarde suas notas de maneira segura!</h4>
+                    <a href="/users/create" class="button2">Cadastrar</a>
+                </div>
+            </div>
+            <div class="session2">
+                <h2 class="title">Login</h2>
+                <form class="form-content"  method="POST" action="/users/authenticate">
+                        <input class="form-edit form-login" type="email" name="email" placeholder="E-mail">
+                        <input class="form-edit form-login" type="password" name="password" placeholder="Senha">
+                    <div class="div-button">
+                        <button type="submit" class="button">Entrar</button>
+                    </div>
+                    <%if(message) {%>
+                        <p class="text-danger mt-3">Nome de usuário e/ou senha incorretos</p>
+                    <%}%>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+<%- include ('../partials/footer.ejs')%>
+
+
+
+

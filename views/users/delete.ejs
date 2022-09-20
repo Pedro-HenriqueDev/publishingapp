@@ -1,0 +1,24 @@
+<%- include ('../partials/head.ejs')%>
+    <%- include ('../partials/navbarUser.ejs')%>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-header">Excluir Conta</div>
+                <div class="card-body">
+                    <form method="POST" action="/users/delete/confirm" onsubmit="confirmDelete('Deseja mesmo excluir sua conta?',event, this)">
+                        <div>
+                            <label for="email">E-mail:</label>
+                            <input class="form-control" type="email" name="email" placeholder="E-mail">
+                        </div>
+                        <label for="password">Senha:</label>
+                        <input class="form-control" type="password" name="password" placeholder="Senha">
+
+                        <button type="submit" class="btn btn-primary mt-2">Excluir</button>
+                    </form>
+                </div>
+                
+            </div>
+
+        </div>
+
+<%- include ('../partials/footer.ejs')%>
